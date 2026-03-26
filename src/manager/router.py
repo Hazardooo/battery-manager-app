@@ -1,22 +1,32 @@
+from uuid import UUID
+
 from fastapi import APIRouter, Depends
 
 from src.manager.dependencies import GetManagerService
-from src.manager.schemas import Device as DeviceSchema
+from src.manager.schemas import DeviceBaseSchema, DeviceDataBaseSchema
 from src.manager.service import DeviceService
 
 router = APIRouter()
 
 
-@router.post("/create")
+@router.post("/create", response_model=DeviceDataBaseSchema)
 async def create_device(
-    device: DeviceSchema,
+    device: DeviceBaseSchema,
     service: DeviceService = Depends(GetManagerService()),
 ):
     return await service.create_device_service(device)
 
 
-@router.get("/devices")
+@router.get("/devices", response_model=list[DeviceDataBaseSchema])
 async def get_devices(
     service: DeviceService = Depends(GetManagerService()),
 ):
     return await service.get_devices_service()
+
+
+@router.get("/devices/{id}", response_model=DeviceBaseSchema)
+async def get_current_device(
+    id: UUID,
+    service: DeviceService = Depends(GetManagerService()),
+):
+    return await service.get_current_device_service(id)

@@ -3,7 +3,7 @@ from uuid import UUID
 from pydantic import BaseModel
 
 
-class Device(BaseModel):
+class DeviceBaseSchema(BaseModel):
     device_name: str
     battery_type: str
     battery_count: int
@@ -12,5 +12,5 @@ class Device(BaseModel):
         from_attributes = True
 
 
-class DeviceDataBase(Device):
+class DeviceDataBaseSchema(DeviceBaseSchema):
     id: UUID
