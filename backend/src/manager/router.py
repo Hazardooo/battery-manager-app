@@ -1,7 +1,6 @@
 from uuid import UUID
 
 from fastapi import APIRouter, Depends
-
 from src.manager.dependencies import GetManagerService
 from src.manager.schemas import DeviceBaseSchema, DeviceDataBaseSchema
 from src.manager.service import DeviceService
