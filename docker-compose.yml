@@ -32,7 +32,7 @@ services:
     profiles: ["tools"]
 
   fastapi:
-    container_name: shorturl-api
+    container_name: api
     build: .
     ports:
       - "${APP_PORT:-8000}:8000"

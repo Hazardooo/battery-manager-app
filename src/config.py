@@ -8,7 +8,7 @@ class Config(BaseSettings):
     DB_NAME: str
     DB_HOST: str = "localhost"
     DB_PORT: int = 5432
-    APP_NAME: str = ""
+    APP_NAME: str = "FastAPI App"
 
     @computed_field
     @property
