@@ -53,5 +53,15 @@ services:
       postgres:
         condition: service_healthy
 
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    ports:
+      - "${NEXTJS_PORT:-3000}:3000"
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - fastapi
+
 volumes:
   postgres_data:
