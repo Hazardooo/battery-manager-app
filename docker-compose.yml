@@ -18,7 +18,7 @@ services:
       retries: 5
 
   migrate:
-    build: .
+    build: ./backend
     env_file:
       - .env
     environment:
@@ -37,8 +37,8 @@ services:
     ports:
       - "${APP_PORT:-8000}:8000"
     volumes:
-      - ./src:/app/src
-      - ./alembic:/app/alembic
+      - ./backend/src:/app/src
+      - ./backend/alembic:/app/alembic
     env_file:
       - .env
     environment:
@@ -60,6 +60,8 @@ services:
       - "${NEXTJS_PORT:-3000}:3000"
     volumes:
       - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
     depends_on:
       - fastapi
 
