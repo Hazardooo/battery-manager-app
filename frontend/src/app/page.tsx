@@ -4,12 +4,18 @@ export default function Home() {
   return (
     <div>
       <header>
-        <h1>Battery Manager</h1>{" "}
+        <h1 className="text-primary">Battery Manager</h1>{" "}
       </header>
       <main>
-        <Link href="/devices">Devices</Link>
+        <Link className="text-primary" href="/devices">
+          Devices
+        </Link>
       </main>
-      <footer></footer>
+      <footer>
+        <Link className="text-primary" href={"https://github.com/Hazardooo"}>
+          Author
+        </Link>
+      </footer>
     </div>
   );
 }
