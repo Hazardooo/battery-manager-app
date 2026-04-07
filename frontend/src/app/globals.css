@@ -1,26 +1,75 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    /* Базовые */
+    --background: #fafafa;
+    --foreground: #171717;
+
+    /* Поверхности */
+    --card: #ffffff;
+    --card-hover: #f5f5f5;
+    --border: #e5e5e5;
+
+    /* Текст */
+    --text-primary: #171717;
+    --text-secondary: #737373;
+    --text-muted: #a3a3a3;
+
+    /* Акценты */
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --accent: #14b8a6;
+    --accent-hover: #0d9488;
+    --danger: #f43f5e;
+    --danger-hover: #e11d48;
+
+    /* Батарейки по типам */
+    --battery-aa: #f59e0b;
+    --battery-aaa: #f97316;
+    --battery-c: #8b5cf6;
+    --battery-d: #3b82f6;
+    --battery-9v: #10b981;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-hover: var(--card-hover);
+    --color-border: var(--border);
+    --color-text-primary: var(--text-primary);
+    --color-text-secondary: var(--text-secondary);
+    --color-text-muted: var(--text-muted);
+    --color-primary: var(--primary);
+    --color-primary-hover: var(--primary-hover);
+    --color-accent: var(--accent);
+    --color-accent-hover: var(--accent-hover);
+    --color-danger: var(--danger);
+    --color-danger-hover: var(--danger-hover);
+    --color-battery-aa: var(--battery-aa);
+    --color-battery-aaa: var(--battery-aaa);
+    --color-battery-c: var(--battery-c);
+    --color-battery-d: var(--battery-d);
+    --color-battery-9v: var(--battery-9v);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+        --card: #171717;
+        --card-hover: #262626;
+        --border: #262626;
+        --text-primary: #ededed;
+        --text-secondary: #a3a3a3;
+        --text-muted: #737373;
+    }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
