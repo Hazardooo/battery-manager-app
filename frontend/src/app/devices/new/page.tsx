@@ -1,8 +1,12 @@
+import { DeviceForm } from "@/app/components/devices/DeviceForm";
+
 export default function NewDevicePage() {
   return (
-    <div>
-      <h1>New Device</h1>
-      <form></form>
+    <div className="min-h-screen p-4">
+      <h1 className="text-text-primary text-2xl font-bold text-center mb-6">
+        Новое устройство
+      </h1>
+      <DeviceForm />
     </div>
   );
 }

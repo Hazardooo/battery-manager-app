@@ -1,4 +1,3 @@
-// app/components/devices/AddDeviceCard.tsx
 import Link from "next/link";
 import { PlusIcon } from "@/app/components/ui/icons/PlusIcon";
 import { Card } from "@/app/components/ui/Card";
@@ -13,9 +12,6 @@ export function AddDeviceCard() {
         <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
           <PlusIcon className="text-primary" />
         </div>
-        <span className="mt-3 text-text-secondary text-sm font-medium group-hover:text-primary transition-colors">
-          Добавить устройство
-        </span>
       </Card>
     </Link>
   );
