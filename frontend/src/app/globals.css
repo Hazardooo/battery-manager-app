@@ -30,7 +30,6 @@
     --battery-d: #3b82f6;
     --battery-9v: #10b981;
 }
-
 @theme inline {
     --color-background: var(--background);
     --color-foreground: var(--foreground);
@@ -46,15 +45,9 @@
     --color-accent-hover: var(--accent-hover);
     --color-danger: var(--danger);
     --color-danger-hover: var(--danger-hover);
-    --color-battery-aa: var(--battery-aa);
-    --color-battery-aaa: var(--battery-aaa);
-    --color-battery-c: var(--battery-c);
-    --color-battery-d: var(--battery-d);
-    --color-battery-9v: var(--battery-9v);
     --font-sans: var(--font-geist-sans);
     --font-mono: var(--font-geist-mono);
 }
-
 @media (prefers-color-scheme: dark) {
     :root {
         --background: #0a0a0a;
