@@ -14,3 +14,9 @@ class DeviceService:
 
     async def get_current_device_service(self, id):
         return await self.repository.get_current_device(id)
+
+    async def delete_device_service(self, id):
+        return await self.repository.delete_device(id)
+
+    async def update_device_service(self, id, device: DeviceBaseSchema):
+        return await self.repository.update_device(id, device)

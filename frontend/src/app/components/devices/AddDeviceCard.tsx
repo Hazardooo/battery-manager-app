@@ -1,10 +1,13 @@
-import Link from "next/link";
 import { PlusIcon } from "@/app/components/ui/icons/PlusIcon";
 import { Card } from "@/app/components/ui/Card";
 
-export function AddDeviceCard() {
+interface AddDeviceCardProps {
+  onClick: () => void;
+}
+
+export function AddDeviceCard({ onClick }: AddDeviceCardProps) {
   return (
-    <Link href="/devices/new" className="group">
+    <button onClick={onClick} className="group">
       <Card
         className="border-dashed flex flex-col justify-center items-center min-h-30 hover:border-primary"
         hover={true}
@@ -13,6 +16,6 @@ export function AddDeviceCard() {
           <PlusIcon className="text-primary" />
         </div>
       </Card>
-    </Link>
+    </button>
   );
 }

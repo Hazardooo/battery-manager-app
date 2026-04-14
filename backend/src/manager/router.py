@@ -29,3 +29,20 @@ async def get_current_device(
     service: DeviceService = Depends(GetManagerService()),
 ):
     return await service.get_current_device_service(id)
+
+
+@router.delete("/devices/{id}", status_code=204)
+async def delete_device(
+    id: UUID,
+    service: DeviceService = Depends(GetManagerService()),
+):
+    return await service.delete_device_service(id)
+
+
+@router.post("/devices/{id}", response_model=DeviceDataBaseSchema)
+async def update_device(
+    id: UUID,
+    device: DeviceBaseSchema,
+    service: DeviceService = Depends(GetManagerService()),
+):
+    return await service.update_device_service(id, device)
