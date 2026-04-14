@@ -12,12 +12,12 @@ export type {
   DeviceDTO,
   DeviceFormData,
   BatteryType,
-} from "./types/device.types";
+} from "@/features/devices/types/device.types";
 export {
   mapDeviceDTOToDevice,
   mapDeviceToDeviceBase,
   BATTERY_OPTIONS,
-} from "./types/device.types";
+} from "@/features/devices/types/device.types";
 
 // API
 export { getDevices, createDevice, updateDevice, deleteDevice } from "./api";
