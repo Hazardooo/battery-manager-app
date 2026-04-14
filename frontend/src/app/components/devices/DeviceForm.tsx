@@ -10,7 +10,11 @@ import { Button } from "@/app/components/ui/Button";
 import { BATTERY_OPTIONS } from "@/lib/types/batterytypes";
 import { createDevice } from "@/lib/api/devices";
 
-export function DeviceForm() {
+interface DeviceFormProps {
+  onSuccess: () => void;
+}
+
+export function DeviceForm({ onSuccess }: DeviceFormProps) {
   const router = useRouter();
   const [deviceName, setDeviceName] = useState("");
   const [batteryType, setBatteryType] = useState("aa");
@@ -28,7 +32,7 @@ export function DeviceForm() {
         battery_count: batteryCount,
       });
 
-      router.push("/devices");
+      onSuccess();
       router.refresh();
     } catch (error) {
       alert("Ошибка при создании устройства: " + error);
@@ -42,10 +46,6 @@ export function DeviceForm() {
       onSubmit={handleSubmit}
       className="bg-card border border-border rounded-lg p-6 max-w-md mx-auto space-y-4"
     >
-      <h2 className="text-text-primary text-xl font-medium mb-4">
-        Добавить устройство
-      </h2>
-
       <FormField label="Название" id="deviceName">
         <Input
           id="deviceName"
@@ -73,7 +73,6 @@ export function DeviceForm() {
           id="batteryCount"
           type="number"
           min={1}
-          max={20}
           value={batteryCount}
           onChange={(e) => setBatteryCount(Number(e.target.value))}
           required
