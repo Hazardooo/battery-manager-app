@@ -1,4 +1,3 @@
-// features/devices/components/DeviceCard.tsx
 import type { Device } from "@/features/devices/types/device.types";
 import { Card } from "@/components/ui/Card";
 

@@ -1,4 +1,3 @@
-// features/devices/hooks/useSidePanel.ts
 import { useState, useCallback } from "react";
 
 interface UseSidePanelReturn<T> {
@@ -15,7 +14,7 @@ export function useSidePanel<
 >(): UseSidePanelReturn<T> {
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
-  const selected = null;  
+  const selected = null;
   const isOpen = selectedId !== null;
 
   const open = useCallback((item: T) => setSelectedId(item.id), []);

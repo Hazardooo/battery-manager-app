@@ -1,4 +1,3 @@
-// features/devices/components/DeviceList.tsx
 "use client";
 
 import { useState } from "react";
@@ -19,7 +18,6 @@ export function DeviceList({ devices }: DeviceListProps) {
 
   const close = () => {
     setIsOpen(false);
-    // selectedId сбрасываем ПОСЛЕ анимации закрытия
     setTimeout(() => {
       setSelectedId(null);
     }, 300);

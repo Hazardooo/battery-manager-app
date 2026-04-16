@@ -1,4 +1,3 @@
-// features/devices/api/getDevices.ts
 import { apiClient } from "@/features/devices/api/client";
 import { DeviceDTO } from "@/features/devices/types/device.types";
 

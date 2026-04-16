@@ -1,4 +1,3 @@
-// features/devices/components/DeviceForm/DeviceFormView.tsx
 "use client";
 
 import { Form } from "@/components/ui/Form";

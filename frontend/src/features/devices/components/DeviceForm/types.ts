@@ -1,4 +1,3 @@
-// DeviceForm/types.ts
 import type { Device } from "@/features/devices/types/device.types";
 
 export interface DeviceFormData {

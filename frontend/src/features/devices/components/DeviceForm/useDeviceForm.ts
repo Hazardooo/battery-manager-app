@@ -1,4 +1,3 @@
-// features/devices/components/DeviceForm/useDeviceForm.ts
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
@@ -12,7 +11,7 @@ import {
   Device,
   DeviceFormData,
   mapDeviceToDeviceBase,
-} from "../../types/device.types";
+} from "@/features/devices/types/device.types";
 
 interface UseDeviceFormProps {
   device?: Device;
@@ -40,7 +39,6 @@ export function useDeviceForm({ device, onSuccess }: UseDeviceFormProps) {
     }
   }, [device]);
 
-  // Переименовано: updateField → handleChange
   const handleChange = useCallback(
     (field: keyof DeviceFormData, value: string | number) => {
       setFormData((prev) => ({ ...prev, [field]: value }));
@@ -48,7 +46,6 @@ export function useDeviceForm({ device, onSuccess }: UseDeviceFormProps) {
     [],
   );
 
-  // Переименовано: submit → handleSubmit
   const handleSubmit = useCallback(async () => {
     setIsSubmitting(true);
     try {
@@ -69,7 +66,6 @@ export function useDeviceForm({ device, onSuccess }: UseDeviceFormProps) {
     }
   }, [formData, device, isEditMode, onSuccess, router]);
 
-  // Переименовано: remove → handleDelete
   const handleDelete = useCallback(async () => {
     if (!device || !confirm("Удалить устройство?")) return;
 
@@ -86,11 +82,11 @@ export function useDeviceForm({ device, onSuccess }: UseDeviceFormProps) {
   }, [device, onSuccess, router]);
 
   return {
-    data: formData, // ← formData → data
+    data: formData,
     isEditMode,
     isSubmitting,
-    handleChange, // ← updateField → handleChange
-    handleSubmit, // ← submit → handleSubmit
-    handleDelete, // ← remove → handleDelete
+    handleChange,
+    handleSubmit,
+    handleDelete,
   };
 }

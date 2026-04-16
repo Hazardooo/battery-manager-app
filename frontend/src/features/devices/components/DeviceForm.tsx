@@ -1,20 +1,19 @@
-// features/devices/components/DeviceForm.tsx
 "use client";
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Form } from "@/components/ui/Form"; // ← исправлен путь
-import { FormField } from "@/components/ui/FormField"; // ← исправлен путь
-import { Input } from "@/components/ui/Input"; // ← исправлен путь
-import { Select } from "@/components/ui/Select"; // ← исправлен путь
-import { Button } from "@/components/ui/Button"; // ← исправлен путь
-import { BATTERY_OPTIONS } from "@/features/devices/types/device.types"; // ← исправлен путь
+import { Form } from "@/components/ui/Form";
+import { FormField } from "@/components/ui/FormField";
+import { Input } from "@/components/ui/Input";
+import { Select } from "@/components/ui/Select";
+import { Button } from "@/components/ui/Button";
+import { BATTERY_OPTIONS } from "@/features/devices/types/device.types";
 import {
   createDevice,
   updateDevice,
   deleteDevice,
-} from "@/features/devices/api"; // ← исправлен путь
-import type { Device } from "@/features/devices/types/device.types"; // ← исправлен путь
+} from "@/features/devices/api";
+import type { Device } from "@/features/devices/types/device.types";
 
 interface DeviceFormProps {
   device?: Device;

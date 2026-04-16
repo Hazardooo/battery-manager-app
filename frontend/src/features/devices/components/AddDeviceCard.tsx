@@ -1,4 +1,3 @@
-// features/devices/components/AddDeviceCard.tsx
 import { PlusIcon } from "@/components/ui/icons/PlusIcon";
 import { Card } from "@/components/ui/Card";
 

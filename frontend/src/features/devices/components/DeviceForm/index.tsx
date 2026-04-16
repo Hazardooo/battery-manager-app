@@ -1,4 +1,3 @@
-// features/devices/components/DeviceForm/index.tsx
 "use client";
 
 import { useDeviceForm } from "@/features/devices/components/DeviceForm/useDeviceForm";
