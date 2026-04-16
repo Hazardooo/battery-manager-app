@@ -69,7 +69,7 @@ export function DeviceList({ devices }: DeviceListProps) {
 
       <SidePanel isOpen={isOpen} onClose={close} title={title}>
         <DeviceForm
-          key={selectedId ?? "new"} // ← ключ для принудительного ремаунта
+          key={selectedId ?? "new"}
           device={selectedDevice || undefined}
           onSuccess={close}
         />
