@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, SyntheticEvent, ChangeEvent } from "react"; // ← добавьте типы
 import { useRouter } from "next/navigation";
 import { Form } from "@/components/ui/Form";
 import { FormField } from "@/components/ui/FormField";
@@ -20,13 +20,17 @@ interface DeviceFormProps {
   onSuccess: () => void;
 }
 
+const DEFAULT_DEVICE_NAME = "";
+const DEFAULT_BATTERY_TYPE = "aa";
+const DEFAULT_BATTERY_COUNT = 1;
+
 export function DeviceForm({ device, onSuccess }: DeviceFormProps) {
   const router = useRouter();
   const isEditMode = !!device;
 
-  const [deviceName, setDeviceName] = useState("");
-  const [batteryType, setBatteryType] = useState("aa");
-  const [batteryCount, setBatteryCount] = useState(1);
+  const [deviceName, setDeviceName] = useState(DEFAULT_DEVICE_NAME);
+  const [batteryType, setBatteryType] = useState(DEFAULT_BATTERY_TYPE);
+  const [batteryCount, setBatteryCount] = useState(DEFAULT_BATTERY_COUNT);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
@@ -34,10 +38,14 @@ export function DeviceForm({ device, onSuccess }: DeviceFormProps) {
       setDeviceName(device.deviceName);
       setBatteryType(device.batteryType);
       setBatteryCount(device.batteryCount);
+    } else {
+      setDeviceName(DEFAULT_DEVICE_NAME);
+      setBatteryType(DEFAULT_BATTERY_TYPE);
+      setBatteryCount(DEFAULT_BATTERY_COUNT);
     }
   }, [device]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -63,6 +71,18 @@ export function DeviceForm({ device, onSuccess }: DeviceFormProps) {
     }
   };
 
+  const handleDeviceNameChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setDeviceName(e.target.value);
+  };
+
+  const handleBatteryTypeChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setBatteryType(e.target.value);
+  };
+
+  const handleBatteryCountChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setBatteryCount(Number(e.target.value));
+  };
+
   const handleDelete = async () => {
     if (!device) return;
     if (!confirm("Удалить устройство?")) return;
@@ -86,7 +106,8 @@ export function DeviceForm({ device, onSuccess }: DeviceFormProps) {
           id="deviceName"
           type="text"
           value={deviceName}
-          onChange={(e) => setDeviceName(e.target.value)}
+          placeholder="Пульт от телевизора гостинной"
+          onChange={handleDeviceNameChange}
           required
           disabled={isSubmitting}
         />
@@ -96,7 +117,7 @@ export function DeviceForm({ device, onSuccess }: DeviceFormProps) {
         <Select
           id="batteryType"
           value={batteryType}
-          onChange={(e) => setBatteryType(e.target.value)}
+          onChange={handleBatteryTypeChange}
           options={BATTERY_OPTIONS}
           disabled={isSubmitting}
         />
@@ -108,7 +129,7 @@ export function DeviceForm({ device, onSuccess }: DeviceFormProps) {
           type="number"
           min={1}
           value={batteryCount}
-          onChange={(e) => setBatteryCount(Number(e.target.value))}
+          onChange={handleBatteryCountChange}
           required
           disabled={isSubmitting}
         />

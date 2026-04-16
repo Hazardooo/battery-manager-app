@@ -13,6 +13,12 @@ import {
   mapDeviceToDeviceBase,
 } from "@/features/devices/types/device.types";
 
+const DEFAULT_FORM_DATA: DeviceFormData = {
+  deviceName: "",
+  batteryType: "aa",
+  batteryCount: 1,
+};
+
 interface UseDeviceFormProps {
   device?: Device;
   onSuccess: () => void;
@@ -22,11 +28,7 @@ export function useDeviceForm({ device, onSuccess }: UseDeviceFormProps) {
   const router = useRouter();
   const isEditMode = !!device;
 
-  const [formData, setFormData] = useState<DeviceFormData>({
-    deviceName: "",
-    batteryType: "aa",
-    batteryCount: 1,
-  });
+  const [formData, setFormData] = useState<DeviceFormData>(DEFAULT_FORM_DATA);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
@@ -36,6 +38,8 @@ export function useDeviceForm({ device, onSuccess }: UseDeviceFormProps) {
         batteryType: device.batteryType,
         batteryCount: device.batteryCount,
       });
+    } else {
+      setFormData(DEFAULT_FORM_DATA);
     }
   }, [device]);
 
