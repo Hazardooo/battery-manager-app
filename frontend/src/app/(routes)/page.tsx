@@ -1,21 +1,10 @@
-import Link from "next/link";
+import { getDevices } from "@/features/devices/api";
+import { DeviceList } from "@/features/devices/components/DeviceList";
+import { mapDeviceDTOToDevice } from "@/features/devices/types/device.types";
 
-export default function Home() {
-  return (
-    <div>
-      <header>
-        <h1 className="text-primary">Battery Manager</h1>{" "}
-      </header>
-      <main>
-        <Link className="text-primary" href="/devices">
-          Devices
-        </Link>
-      </main>
-      <footer>
-        <Link className="text-primary" href={"https://github.com/Hazardooo"}>
-          Author
-        </Link>
-      </footer>
-    </div>
-  );
+export default async function DevicesPage() {
+  const devicesDTO = await getDevices();
+  const devices = devicesDTO.map(mapDeviceDTOToDevice);
+
+  return <DeviceList devices={devices} />;
 }
