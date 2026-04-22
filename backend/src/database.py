@@ -1,9 +1,9 @@
 from contextlib import asynccontextmanager
 from typing import AsyncGenerator
 
+from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.orm import DeclarativeBase
-
 from src.config import app_config
 
 
@@ -34,9 +34,12 @@ AsyncSessionLocal = async_sessionmaker(
 
 @asynccontextmanager
 async def get_db_session() -> AsyncGenerator[AsyncSession, None]:
-    async with AsyncSessionLocal() as session:
-        yield session
-        await session.commit()
+    try:
+        async with AsyncSessionLocal() as session:
+            yield session
+            await session.commit()
+    except SQLAlchemyError:
+        raise
 
 
 async def get_postgres() -> AsyncGenerator[AsyncSession, None]:

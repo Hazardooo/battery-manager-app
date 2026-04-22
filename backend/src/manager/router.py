@@ -20,7 +20,7 @@ async def create_device(
 async def get_devices(
     service: DeviceService = Depends(GetManagerService()),
 ):
-    return await service.get_devices_service()
+    return await service.get_all_service()
 
 
 @router.get("/devices/{id}", response_model=DeviceBaseSchema)
@@ -28,7 +28,7 @@ async def get_current_device(
     id: UUID,
     service: DeviceService = Depends(GetManagerService()),
 ):
-    return await service.get_current_device_service(id)
+    return await service.get_by_id_service(id)
 
 
 @router.delete("/devices/{id}", status_code=204)

@@ -11,10 +11,10 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Next.js dev server
+    allow_origins=["http://localhost:3000"],
     allow_credentials=True,
-    allow_methods=["*"],  # GET, POST, PUT, DELETE и др.
-    allow_headers=["*"],  # Все заголовки
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 app.include_router(router=urls_router, tags=["Manager"])

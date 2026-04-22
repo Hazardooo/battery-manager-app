@@ -9,14 +9,14 @@ class DeviceService:
     async def create_device_service(self, device: DeviceBaseSchema):
         return await self.repository.create(device)
 
-    async def get_devices_service(self):
-        return await self.repository.get_devices()
+    async def get_all_service(self):
+        return await self.repository.get_all()
 
-    async def get_current_device_service(self, id):
-        return await self.repository.get_current_device(id)
+    async def get_by_id_service(self, id):
+        return await self.repository.get_by_id(id)
 
     async def delete_device_service(self, id):
-        return await self.repository.delete_device(id)
+        return await self.repository.delete(id)
 
     async def update_device_service(self, id, device: DeviceBaseSchema):
-        return await self.repository.update_device(id, device)
+        return await self.repository.update(id, device)
