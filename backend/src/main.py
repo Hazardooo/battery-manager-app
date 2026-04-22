@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from src.config import app_config
+from src.error_handlers import register_exception_handlers
 from src.manager.router import router as urls_router
 
 app = FastAPI(
@@ -16,5 +17,5 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
+register_exception_handlers(app)
 app.include_router(router=urls_router, tags=["Manager"])
