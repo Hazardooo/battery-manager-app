@@ -1,6 +1,3 @@
-// features/devices/types/device.types.ts
-
-// API-типы (snake_case для бэкенда)
 export interface DeviceBase {
   device_name: string;
   battery_type: string;
@@ -11,7 +8,6 @@ export interface DeviceDTO extends DeviceBase {
   id: string;
 }
 
-// Frontend-типы (camelCase)
 export interface Device {
   id: string;
   deviceName: string;
@@ -19,7 +15,6 @@ export interface Device {
   batteryCount: number;
 }
 
-// Форма
 export interface DeviceFormData {
   deviceName: string;
   batteryType: string;
@@ -44,7 +39,6 @@ export function mapDeviceToDeviceBase(device: DeviceFormData): DeviceBase {
   };
 }
 
-// Константы
 export const BATTERY_OPTIONS = [
   { value: "aa", label: "AA" },
   { value: "aaa", label: "AAA" },

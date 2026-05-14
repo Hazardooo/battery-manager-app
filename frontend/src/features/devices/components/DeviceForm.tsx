@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, SyntheticEvent, ChangeEvent } from "react"; // ← добавьте типы
+import { useState, useEffect, SyntheticEvent, ChangeEvent } from "react";
 import { useRouter } from "next/navigation";
 import { Form } from "@/components/ui/Form";
 import { FormField } from "@/components/ui/FormField";
