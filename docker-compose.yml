@@ -31,8 +31,8 @@ services:
         condition: service_healthy
     profiles: ["tools"]
 
-  fastapi:
-    container_name: api
+  backend:
+    container_name: backend
     build: ./backend
     ports:
       - "${APP_PORT:-8000}:8000"
@@ -62,8 +62,8 @@ services:
       - ./frontend:/src/app
       - /app/node_modules
       - /app/.next
-    depends_on:
-      - fastapi
+    env_file:
+      - .env
 
 volumes:
   postgres_data:
