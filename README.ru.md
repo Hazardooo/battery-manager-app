@@ -44,7 +44,7 @@
 
 ```bash
 # 1. Клонировать репозиторий
-git clone <repo-url>
+git clone https://github.com/Hazardooo/battery-manager-app.git
 cd battery-manager
 
 # 2. Убедиться, что .env корректен
