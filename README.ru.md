@@ -362,4 +362,4 @@ docker compose --profile tools run --rm migrate
 
 ## Лицензия
 
-MIT
+[MIT](https://github.com/Hazardooo/battery-manager-app/blob/main/LICENSE)
