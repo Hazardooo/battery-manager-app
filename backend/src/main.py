@@ -8,6 +8,7 @@ app = FastAPI(
     title=app_config.APP_NAME,
     description=f"{app_config.APP_NAME} API",
     version="1.0.0",
+    root_path="/api",
 )
 
 app.add_middleware(
@@ -16,6 +17,9 @@ app.add_middleware(
         "http://localhost:3000",
         "http://127.0.0.1:3000",
         "http://localhost:8000",
+        "http://127.0.0.1:8000",
+        "http://localhost",
+        "http://127.0.0.1",
     ],
     allow_credentials=True,
     allow_methods=["*"],
